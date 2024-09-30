@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
+import Image from 'next/image'
 
 // Types
 type BodyPartRarity = 'common' | 'rare' | 'legendary'
@@ -64,22 +65,22 @@ const useBodyParts = () => {
 
   useEffect(() => {
     const parts: BodyPart[] = [
-      { id: 'h1', type: 'head', name: 'Brainy Head', intelligence: 8, strength: 1, agility: 2, energy: 3, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'h2', type: 'head', name: 'Strong Head', intelligence: 3, strength: 7, agility: 2, energy: 4, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'h3', type: 'head', name: 'Psychic Head', intelligence: 12, strength: 1, agility: 1, energy: 6, rarity: 'rare', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'h4', type: 'head', name: 'Omniscient Orb', intelligence: 20, strength: 1, agility: 1, energy: 10, rarity: 'legendary', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'b1', type: 'body', name: 'Agile Torso', intelligence: 2, strength: 3, agility: 8, energy: 3, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'b2', type: 'body', name: 'Energy Core', intelligence: 3, strength: 2, agility: 3, energy: 8, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'b3', type: 'body', name: 'Adaptive Chassis', intelligence: 5, strength: 5, agility: 5, energy: 5, rarity: 'rare', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'b4', type: 'body', name: 'Quantum Frame', intelligence: 10, strength: 10, agility: 10, energy: 10, rarity: 'legendary', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'a1', type: 'arms', name: 'Multi-Arms', intelligence: 4, strength: 5, agility: 6, energy: 1, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'a2', type: 'arms', name: 'Power Arms', intelligence: 1, strength: 9, agility: 2, energy: 4, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'a3', type: 'arms', name: 'Precision Manipulators', intelligence: 7, strength: 3, agility: 8, energy: 2, rarity: 'rare', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'a4', type: 'arms', name: 'Cosmic Tentacles', intelligence: 15, strength: 15, agility: 15, energy: 5, rarity: 'legendary', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'l1', type: 'legs', name: 'Speed Legs', intelligence: 2, strength: 3, agility: 9, energy: 2, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'l2', type: 'legs', name: 'Stable Legs', intelligence: 3, strength: 6, agility: 4, energy: 3, rarity: 'common', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'l3', type: 'legs', name: 'Hover Pads', intelligence: 5, strength: 2, agility: 10, energy: 5, rarity: 'rare', image: '/placeholder.svg?height=50&width=50' },
-      { id: 'l4', type: 'legs', name: 'Quantum Leapers', intelligence: 10, strength: 5, agility: 20, energy: 15, rarity: 'legendary', image: '/placeholder.svg?height=50&width=50' },
+      { id: 'h1', type: 'head', name: 'Brainy Head', intelligence: 8, strength: 1, agility: 2, energy: 3, rarity: 'common', image: '/parts/head0.png' },
+      { id: 'h2', type: 'head', name: 'Strong Head', intelligence: 3, strength: 7, agility: 2, energy: 4, rarity: 'common', image: '/parts/head1.png' },
+      { id: 'h3', type: 'head', name: 'Psychic Head', intelligence: 12, strength: 1, agility: 1, energy: 6, rarity: 'rare', image: '/parts/head2.png' },
+      { id: 'h4', type: 'head', name: 'Omniscient Orb', intelligence: 20, strength: 1, agility: 1, energy: 10, rarity: 'legendary', image: '/parts/head2.png' },
+      { id: 'b1', type: 'body', name: 'Agile Torso', intelligence: 2, strength: 3, agility: 8, energy: 3, rarity: 'common', image: '/parts/body0.png' },
+      { id: 'b2', type: 'body', name: 'Energy Core', intelligence: 3, strength: 2, agility: 3, energy: 8, rarity: 'common', image: '/parts/body1.png' },
+      { id: 'b3', type: 'body', name: 'Adaptive Chassis', intelligence: 5, strength: 5, agility: 5, energy: 5, rarity: 'rare', image: '/parts/body2.png' },
+      { id: 'b4', type: 'body', name: 'Quantum Frame', intelligence: 10, strength: 10, agility: 10, energy: 10, rarity: 'legendary', image: '/parts/body0.png' },
+      { id: 'a1', type: 'arms', name: 'Multi-Arms', intelligence: 4, strength: 5, agility: 6, energy: 1, rarity: 'common', image: '/parts/arm0.png' },
+      { id: 'a2', type: 'arms', name: 'Power Arms', intelligence: 1, strength: 9, agility: 2, energy: 4, rarity: 'common', image: '/parts/arm1.png' },
+      { id: 'a3', type: 'arms', name: 'Precision Manipulators', intelligence: 7, strength: 3, agility: 8, energy: 2, rarity: 'rare', image: '/parts/arm0.png' },
+      { id: 'a4', type: 'arms', name: 'Cosmic Tentacles', intelligence: 15, strength: 15, agility: 15, energy: 5, rarity: 'legendary', image: '/parts/arm0.png' },
+      { id: 'l1', type: 'legs', name: 'Speed Legs', intelligence: 2, strength: 3, agility: 9, energy: 2, rarity: 'common', image: '/parts/leg0.png' },
+      { id: 'l2', type: 'legs', name: 'Stable Legs', intelligence: 3, strength: 6, agility: 4, energy: 3, rarity: 'common', image: '/parts/leg1.png' },
+      { id: 'l3', type: 'legs', name: 'Hover Pads', intelligence: 5, strength: 2, agility: 10, energy: 5, rarity: 'rare', image: '/parts/leg2.png' },
+      { id: 'l4', type: 'legs', name: 'Quantum Leapers', intelligence: 10, strength: 5, agility: 20, energy: 15, rarity: 'legendary', image: '/parts/leg0.png' },
     ]
     setBodyParts(parts)
   }, [])
@@ -170,7 +171,7 @@ const BodyPartSelector: React.FC<{ parts: BodyPart[], onSelect: (part: BodyPart)
                       onClick={() => onSelect(part)}
                     >
                       <span>{part.name}</span>
-                      <img src={part.image} alt={part.name} className="w-6 h-6" />
+                      <Image width={24} height={24} src={part.image} alt={part.name} className="w-6 h-6" />
                     </motion.button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -208,7 +209,7 @@ const AlienAssembly: React.FC<{ alien: AssembledAlien, onRemove: (type: keyof As
           >
             <span>{part.name}</span>
             <div className="flex items-center">
-              <img src={part.image} alt={part.name} className="w-6 h-6 mr-2" />
+              <Image src={part.image} alt={part.name} width={24} height={24} className="w-6 h-6 mr-2" />
               <Button variant="ghost" size="icon" onClick={() => onRemove(type as keyof AssembledAlien)}>
                 <XCircle className="h-4 w-4" />
               </Button>
@@ -291,11 +292,11 @@ const AlienVisual: React.FC<{ alien: AssembledAlien }> = ({ alien }) => (
     </CardHeader>
     <CardContent>
       <div className="relative w-48 h-48 mx-auto">
-        {alien.body && <img src={alien.body.image} alt="Body" className="absolute top-1/4 left-1/4 w-1/2 h-1/2" />}
-        {alien.head && <img src={alien.head.image} alt="Head" className="absolute top-0 left-1/3 w-1/3 h-1/3" />}
-        {alien.arms && <img src={alien.arms.image} alt="Arms" className="absolute top-1/4 left-0 w-1/4 h-1/2" />}
-        {alien.arms && <img src={alien.arms.image} alt="Arms" className="absolute top-1/4 right-0 w-1/4 h-1/2 transform scale-x-[-1]" />}
-        {alien.legs && <img src={alien.legs.image} alt="Legs" className="absolute bottom-0 left-1/4 w-1/2 h-1/3" />}
+        {alien.body && <Image width={24} height={24} src={alien.body.image} alt="Body" className="absolute top-1/4 left-1/4 w-1/2 h-1/2" />}
+        {alien.head && <Image width={24} height={24} src={alien.head.image} alt="Head" className="absolute top-0 left-1/3 w-1/3 h-1/3" />}
+        {alien.arms && <Image width={24} height={24} src={alien.arms.image} alt="Arms" className="absolute top-1/4 left-0 w-1/4 h-1/2" />}
+        {alien.arms && <Image width={24} height={24} src={alien.arms.image} alt="Arms" className="absolute top-1/4 right-0 w-1/4 h-1/2 transform scale-x-[-1]" />}
+        {alien.legs && <Image width={24} height={24} src={alien.legs.image} alt="Legs" className="absolute bottom-0 left-1/4 w-1/2 h-1/3" />}
       </div>
     </CardContent>
   </Card>
